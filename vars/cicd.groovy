@@ -5,3 +5,6 @@ def newGit(repo)
 def newMaven(){
   sh 'mvn package'
 }
+def newDeployment(jobname,ip,context){
+  sh 'scp /home/ubuntu/.jenkins/workspace/${jobname}/target/java-jenkins-0.0.1-SNAPSHOT.war ubuntu@"${ip}:/home/ubuntu/deployment/${context}.war'
+}
